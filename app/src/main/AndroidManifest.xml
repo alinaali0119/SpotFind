@@ -18,6 +18,9 @@
         android:theme="@style/Theme.SpotFind"
         tools:targetApi="31">
         <activity
+            android:name=".SearchResultsActivity"
+            android:exported="false" />
+        <activity
             android:name=".RentParkingActivity"
             android:exported="false" />
         <!--

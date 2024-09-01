@@ -1,6 +1,8 @@
 package com.example.spotfind;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class ParkingSpaceDatabase {
+public class ParkingSpaceDatabase implements Parcelable {
     private String ownerName;
     private String phoneNumber;
     private String alternateNumber;
@@ -41,6 +43,59 @@ public class ParkingSpaceDatabase {
         this.guardAvailability = guardAvailability;
         this.location = location;
     }
+
+    protected ParkingSpaceDatabase(Parcel in) {
+        ownerName = in.readString();
+        phoneNumber = in.readString();
+        alternateNumber = in.readString();
+        houseNumber = in.readString();
+        street = in.readString();
+        locality = in.readString();
+        city = in.readString();
+        state = in.readString();
+        pin = in.readString();
+        landmark = in.readString();
+        parkingSize = in.readString();
+        availabilityTime = in.readString();
+        cameraAvailability = in.readByte() != 0;
+        guardAvailability = in.readByte() != 0;
+        location = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(ownerName);
+        dest.writeString(phoneNumber);
+        dest.writeString(alternateNumber);
+        dest.writeString(houseNumber);
+        dest.writeString(street);
+        dest.writeString(locality);
+        dest.writeString(city);
+        dest.writeString(state);
+        dest.writeString(pin);
+        dest.writeString(landmark);
+        dest.writeString(parkingSize);
+        dest.writeString(availabilityTime);
+        dest.writeByte((byte) (cameraAvailability ? 1 : 0));
+        dest.writeByte((byte) (guardAvailability ? 1 : 0));
+        dest.writeString(location);
+    }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<ParkingSpaceDatabase> CREATOR = new Creator<ParkingSpaceDatabase>() {
+        @Override
+        public ParkingSpaceDatabase createFromParcel(Parcel in) {
+            return new ParkingSpaceDatabase(in);
+        }
+
+        @Override
+        public ParkingSpaceDatabase[] newArray(int size) {
+            return new ParkingSpaceDatabase[size];
+        }
+    };
 
     // Getters and setters
     public String getOwnerName() { return ownerName; }

@@ -6,89 +6,43 @@
     android:id="@+id/main"
     android:padding="16dp">
 
-    <!-- Search Bar -->
-    <EditText
-        android:id="@+id/search_bar"
+    <!-- Button to Open Maps Activity -->
+    <Button
+        android:id="@+id/btnChoose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Enter location or address"
-        android:inputType="text"
-        android:padding="10dp"
-        android:focusable="false"
-        android:clickable="true"
-        android:background="@drawable/search_bar_background" />
-
-    <!-- Filter Options Button -->
-    <Button
-        android:id="@+id/btnFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Filter"
+        android:text="Choose Location"
         android:backgroundTint="#132348"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
-        android:layout_below="@id/search_bar"
-        android:layout_marginTop="10dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Filter Options (Initially Hidden) -->
-    <LinearLayout
-        android:id="@+id/filter_options"
+    <!-- TextView to Display Chosen Location -->
+    <TextView
+        android:id="@+id/tvLocation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnFilter"
-        android:orientation="vertical"
-        android:visibility="gone"
+        android:layout_height="100dp"
+        android:text="No location chosen"
+        android:textSize="16sp"
         android:layout_marginTop="10dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@id/btnChoose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <CheckBox
-            android:id="@+id/filter_short_term"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Short-term" />
-
-        <CheckBox
-            android:id="@+id/filter_long_term"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Long-term" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price Range"
-            android:layout_marginTop="10dp" />
-
-        <SeekBar
-            android:id="@+id/price_range"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/price_range_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0 - 100"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="5dp" />
-
-        <CheckBox
-            android:id="@+id/filter_amenities"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amenities" />
-
-    </LinearLayout>
+    <!-- Search Button -->
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#132348"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tvLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Bottom Navigation Buttons -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="60dp">
 
 
         <Button
@@ -96,6 +50,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="56dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:backgroundTint="#132348"
             android:text="Rent Your Parking"
             android:textColor="#FFFFFF"
@@ -103,52 +59,50 @@
             tools:layout_editor_absoluteX="109dp" />
 
         <ImageButton
-                android:id="@+id/btnProfile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                android:padding="30dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/round_button_background"
-                android:contentDescription="Profile"
-                android:src="@drawable/ic_profile" />
+            android:id="@+id/btnProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:padding="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_button_background"
+            android:contentDescription="Profile"
+            android:src="@drawable/ic_profile" />
 
-            <ImageButton
-                android:id="@+id/btnOrders"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                app:layout_constraintStart_toEndOf="@id/btnProfile"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:background="@drawable/round_button_background"
-                android:contentDescription="Orders"
-                android:src="@drawable/ic_orders" />
+        <ImageButton
+            android:id="@+id/btnOrders"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toEndOf="@id/btnProfile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/round_button_background"
+            android:contentDescription="Orders"
+            android:src="@drawable/ic_orders" />
 
-            <ImageButton
-                android:id="@+id/btnSupport"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btnAbout"
-                android:background="@drawable/round_button_background"
-                android:contentDescription="Support"
-                android:src="@drawable/ic_support" />
+        <ImageButton
+            android:id="@+id/btnSupport"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnAbout"
+            android:background="@drawable/round_button_background"
+            android:contentDescription="Support"
+            android:src="@drawable/ic_support" />
 
-            <ImageButton
-                android:id="@+id/btnAbout"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:background="@drawable/round_button_background"
-                android:contentDescription="About"
-                android:src="@drawable/ic_about" />
-
+        <ImageButton
+            android:id="@+id/btnAbout"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/round_button_background"
+            android:contentDescription="About"
+            android:src="@drawable/ic_about" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
