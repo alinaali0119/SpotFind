@@ -57,9 +57,8 @@ dependencies {
     // Other Google Play Services dependencies
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation ("com.google.android.gms:play-services-maps:18.1.0")
-   // No version needed
-     // No version needed
-   // No version needed
+    implementation ("com.squareup.okhttp3:okhttp:4.9.2")
+    implementation ("com.google.code.gson:gson:2.8.8")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

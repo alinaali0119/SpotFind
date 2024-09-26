@@ -27,7 +27,7 @@ import java.util.List;
 public class HomePageActivity extends AppCompatActivity {
 
     ImageButton btnProfile, btnOrders, btnSupport, btnAbout;
-    Button btnChoose, btnPark, btnSearch;
+    Button btnChoose, btnSearch;
     TextView tvLocation;
     private double chosenLatitude;
     private double chosenLongitude;
@@ -57,7 +57,7 @@ public class HomePageActivity extends AppCompatActivity {
         btnAbout= findViewById(R.id.btnAbout);
         btnChoose= findViewById(R.id.btnChoose);
         btnSearch= findViewById(R.id.btnSearch);
-        btnPark= findViewById(R.id.btnPark);
+       // btnPark= findViewById(R.id.btnPark);
 
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
@@ -105,16 +105,33 @@ public class HomePageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i= new Intent(HomePageActivity.this, ProfileActivity.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
-        btnPark.setOnClickListener(new View.OnClickListener() {
+        /*btnPark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent(HomePageActivity.this, RentParkingActivity.class);
                 startActivity(i);
-                finish();
+               // finish();
+            }
+        });*/
+
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(HomePageActivity.this, SupportActivity.class);
+                startActivity(i);
+               // finish();
+            }
+        });
+
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(HomePageActivity.this, AboutActivity.class);
+                startActivity(i);
             }
         });
 
